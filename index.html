@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8"/>
+        <title>3D Impossible Bowling</title>
+
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+
+        <script src="js/bowling-ball.js"></script>
+    </head>
+    <body>
+        <a-scene id="main-scene" renderer="colorManagement: true;">
+            <a-asset timeout="10000">
+                <a-assets-item id="ball-glb" src="./assets/bowling_ball.glb"></a-assets-item>
+                <a-assets-item id="pin-glb" src="./assets/bowling_pin.glb"></a-assets-item>
+                <a-assets-item id="alley-glb" src="./assets/bowling_alley.glb"></a-assets-item>
+            </a-asset>
+
+            <a-entity
+                id="camera"
+                camera
+                look-controls="pointerLockEnabled:true;"
+                wasd-controls
+                position="0 0.5 0"
+            ><a-cursor></a-cursor></a-entity>
+
+            <a-sky 
+                id="main-container"
+                color="#f2f196"
+            ></a-sky>
+
+            <a-entity throw></a-entity>
+
+            
+            <a-entity
+                id="bowling-alley"
+                position="0 -2 0"
+                gltf-model="#alley-glb"
+                scale=".25 .25 .25"
+            ></a-entity>
+            <a-entity
+                id="bowling-alley-collider"
+                position="0 -1.5 0"
+                rotation="-90 0 0"
+                geometry="primitive: plane; width: 8; height: 25;"
+                material="opacity: 0; transparent: true;"
+                static-body
+            ></a-entity>
+
+            <a-entity
+                id="pin1A"
+                position="0 0 -7"
+                gltf-model="#pin-glb"
+                scale=".025 .025 .025"
+                dynamic-body
+            ></a-entity>
+
+            <a-entity
+                id="pin2A"
+                position="-0.5 0 -8"
+                gltf-model="#pin-glb"
+                scale=".025 .025 .025"
+                dynamic-body
+            ></a-entity>
+            <a-entity
+                id="pin2B"
+                position="0.5 0 -8"
+                gltf-model="#pin-glb"
+                scale=".025 .025 .025"
+                dynamic-body
+            ></a-entity>
+
+            <a-entity
+                id="pin3A"
+                position="-1 0 -9"
+                gltf-model="#pin-glb"
+                scale=".025 .025 .025"
+                dynamic-body
+            ></a-entity>
+            <a-entity
+                id="pin3B"
+                position="0 0 -9"
+                gltf-model="#pin-glb"
+                scale=".025 .025 .025"
+                dynamic-body
+            ></a-entity>
+            <a-entity
+                id="pin3C"
+                position="1 0 -9"
+                gltf-model="#pin-glb"
+                scale=".025 .025 .025"
+                dynamic-body
+            ></a-entity>
+
+            <a-entity
+                id="pin4A"
+                position="-1.5 0 -10"
+                gltf-model="#pin-glb"
+                scale=".025 .025 .025"
+                dynamic-body
+            ></a-entity>
+            <a-entity
+                id="pin4B"
+                position="-0.5 0 -10"
+                gltf-model="#pin-glb"
+                scale=".025 .025 .025"
+                dynamic-body
+            ></a-entity>
+            <a-entity
+                id="pin4C"
+                position="0.5 0 -10"
+                gltf-model="#pin-glb"
+                scale=".025 .025 .025"
+                dynamic-body
+            ></a-entity>
+            <a-entity
+                id="pin4D"
+                position="1.5 0 -10"
+                gltf-model="#pin-glb"
+                scale=".025 .025 .025"
+                dynamic-body
+            ></a-entity>
+        </a-scene>
+    </body>
+</html>
